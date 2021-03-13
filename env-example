@@ -1,4 +1,5 @@
 FLASK_ENV=development
 FLASK_DEBUG=1
-CACHE_TYPE=FileSystemCache
-CACHE_DEFAULT_TIMEOUT=86400
+CACHE_TYPE=NullCache        # Other Cache types: https://flask-caching.readthedocs.io/en/latest/index.html#built-in-cache-backends
+CACHE_DIR=cache             # Needed for cache type "FileSystemCache"
+CACHE_DEFAULT_TIMEOUT=0     # 86400 seems to be a reasonable timeout
