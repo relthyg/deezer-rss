@@ -16,7 +16,6 @@
         <title>{{ artist.name }}</title>
         <link>{{ artist.link }}</link>
         <description>{{ artist.name }} on Deezer</description>
-        <artist_id>{{ artist.id }}</artist_id>
         <atom:link href="{{ request_url }}" rel="self" type="application/rss+xml"/>
         {% for album in artist.albums %}
             <item>
@@ -24,8 +23,6 @@
                 <link>{{ album.link }}</link>
                 <pubDate>{{ album.pub_date }}</pubDate>
                 <guid isPermaLink="false">{{ album.id }}</guid>
-                <album_id>{{ album.id }}</album_id>
-                <album_type>{{ album.record_type }}</album_type>
                 <description><![CDATA[{{ description(album) }}]]></description>
             </item>
         {% endfor %}
