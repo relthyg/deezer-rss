@@ -1,5 +1,4 @@
 FLASK_ENV=development
 FLASK_DEBUG=1
-SECRET_KEY=you-will-never-guess
-CACHE_TYPE=SimpleCache
+CACHE_TYPE=FileSystemCache
 CACHE_DEFAULT_TIMEOUT=86400
