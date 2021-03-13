@@ -15,12 +15,15 @@
         <li>{{ album.id }}</li>
         <li>{{ album.link }}</li>
         <li>{{ album.release_date }}</li>
+        <li>{{ album.pub_date }}</li>
         <li>{{ album.record_type }}</li>
         <li>{{ album.cover_small }}</li>
         <li>{{ album.cover }}</li>
         <li>{{ album.cover_medium }}</li>
         <li>{{ album.cover_big }}</li>
         <li>{{ album.cover_xl }}</li>
+        <li>{{ album.duration }}</li>
+        <li>{{ album.duration_in_minutes }}</li>
     </ul>
 
     {% for track in album.tracks %}
