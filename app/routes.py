@@ -1,10 +1,11 @@
 import deezer
 from flask import render_template
 
-from app import app
+from app import app, cache
 
 
 @app.route('/<artist_id>')
+@cache.cached()
 def index(artist_id):
     client = deezer.Client()
     artist = client.get_artist(artist_id)
