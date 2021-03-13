@@ -25,7 +25,8 @@ and run the application (on your localhost on port 5000)
 ## Usage
 There is only one route, `/artist_id_or_name`, so you can visit
 either https://localhost:5000/2814 or https://localhost:5000/opeth
-to get the same result. Note: Using the artist's name may be fuzzy
+to get the same result. Note: Using the artist's name
+[may be fuzzy](https://github.com/relthyg/deezer-rss/blob/6e1ca8637551d0cdb6d507e218117d43a7cfa556/app/deezer_factory.py#L11)
 and end up in false results.
 
 ## Features
