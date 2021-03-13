@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 {% macro description(album) %}
     <p><a href="{{ album.cover_xl }}"><img src="{{ album.cover }}" /></a></p>
-    <p>Duration: {{ album.duration_in_minutes }}</p>
+    <ul>
+        <li>Duration: {{ album.duration_in_minutes }}</li>
+        <li>Record Type: {{ album.record_type }}</li>
+    </ul>
     <ol>
         {% for track in album.tracks %}
             <li>{{ track.title_short }} ({{ track.duration_in_minutes }})</li>
@@ -13,6 +16,7 @@
         <title>{{ artist.name }}</title>
         <link>{{ artist.link }}</link>
         <description>{{ artist.name }} on Deezer</description>
+        <artist_id>{{ artist.id }}</artist_id>
         <atom:link href="{{ request_url }}" rel="self" type="application/rss+xml"/>
         {% for album in artist.albums %}
             <item>
@@ -20,6 +24,8 @@
                 <link>{{ album.link }}</link>
                 <pubDate>{{ album.pub_date }}</pubDate>
                 <guid isPermaLink="false">{{ album.id }}</guid>
+                <album_id>{{ album.id }}</album_id>
+                <album_type>{{ album.record_type }}</album_type>
                 <description><![CDATA[{{ description(album) }}]]></description>
             </item>
         {% endfor %}

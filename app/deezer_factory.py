@@ -3,9 +3,12 @@ from datetime import datetime
 import deezer
 
 
-def get_artist(artist_id):
+def get_artist(artist_id_or_name):
     client = deezer.Client()
-    artist = client.get_artist(artist_id)
+    try:
+        artist = client.get_artist(int(artist_id_or_name))
+    except:
+        artist = client.search(artist_id_or_name, relation='artist')[0]
     artist.albums = get_albums(artist)
     return artist
 
@@ -31,4 +34,4 @@ def get_tracks(album):
 
 def get_duration_in_minutes(duration_in_seconds):
     m, s = divmod(duration_in_seconds, 60)
-    return str(m) + ':' + str(s)
+    return str(m) + ':' + str(s).zfill(2)
