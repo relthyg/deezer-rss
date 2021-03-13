@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+{% macro description(album) %}
+    <p><a href="{{ album.cover_xl }}"><img src="{{ album.cover }}" /></a></p>
+    <ol>
+        {% for track in album.tracks %}
+            <li>{{ track.title_short }} ({{ track.duration_in_minutes }})</li>
+        {% endfor %}
+    </ol>
+{% endmacro %}
+
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>{{ artist.name }}</title>
+        <link>{{ artist.link }}</link>
+        <description>{{ artist.name }} on Deezer</description>
+        <atom:link href="{{ request_url }}" rel="self" type="application/rss+xml"/>
+        {% for album in artist.albums %}
+            <item>
+                <title>{{ album.title }}</title>
+                <link>{{ album.link }}</link>
+                <pubDate>{{ album.release_date }}</pubDate>
+                <guid isPermaLink="false">{{ album.id }}</guid>
+                <description><![CDATA[{{ description(album) }}]]></description>
+            </item>
+        {% endfor %}
+    </channel>
+</rss>
