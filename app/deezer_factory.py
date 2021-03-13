@@ -34,4 +34,4 @@ def get_tracks(album):
 
 def get_duration_in_minutes(duration_in_seconds):
     m, s = divmod(duration_in_seconds, 60)
-    return str(m) + ':' + str(s).zfill(2)
+    return str(m).zfill(2) + ':' + str(s).zfill(2)
