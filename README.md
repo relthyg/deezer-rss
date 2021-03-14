@@ -1,7 +1,7 @@
 # deezer-rss
 
 This flask application provides an artist's discography on Deezer as
-rss feed. Each album is represented by a feed item, so you can use
+an rss feed. Each album is represented by a feed item, so you can use
 it to get notified about new releases.
 
 ## Quickstart
@@ -14,7 +14,7 @@ install the dependencies
 
     pip install -r requirements.txt
 
-generate an `.env` file
+generate a `.env` file
 
     cp env-example .env
 
