@@ -14,7 +14,7 @@ def get_artist(artist_id_or_name):
 
 
 def get_albums(artist):
-    albums = artist.get_albums()
+    albums = artist.get_albums(limit = 999)
     for album in albums:
         album.tracks = get_tracks(album)
         album.duration = 0
