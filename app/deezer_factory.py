@@ -1,6 +1,6 @@
 from datetime import datetime
 
-import deezer
+import deezer, time
 
 
 def get_artist(artist_id_or_name):
@@ -14,9 +14,14 @@ def get_artist(artist_id_or_name):
 
 
 def get_albums(artist):
+    counter = 2 # The Deezer API allows 50 requests in 5 seconds. One or two were already made here.
     albums = artist.get_albums(limit = 999)
     for album in albums:
+        if counter > 49:
+            time.sleep(5)
+            counter = 0
         album.tracks = get_tracks(album)
+        counter = counter + 1
         album.duration = 0
         for track in album.tracks:
             album.duration += track.duration
