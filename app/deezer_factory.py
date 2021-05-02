@@ -14,7 +14,7 @@ def get_artist(artist_id_or_name):
 
 
 def get_albums(artist):
-    counter = 2 # The Deezer API allows 50 requests in 5 seconds. One or two were already made here.
+    counter = 3 # The Deezer API allows 50 requests in 5 seconds. Up to 3 were already made here.
     albums = artist.get_albums(limit = 999)
     for album in albums:
         if counter > 49:
