@@ -2,12 +2,14 @@
 {% macro description(album) %}
     <p><a href="{{ album.cover_xl }}"><img src="{{ album.cover_medium }}" /></a></p>
     <ul>
+        <li>ID: {{ album.id }}</li>
         <li>Duration: {{ album.duration_in_minutes }}</li>
         <li>Record Type: {{ album.record_type }}</li>
+        <li>Is complete: {{ album.is_complete }}</li>
     </ul>
     <ol>
         {% for track in album.tracks %}
-            <li>{{ track.title_short }} ({{ track.duration_in_minutes }})</li>
+            <li>{{ track.title_short }} ({{ track.duration_in_minutes }}) {% if not track.readable %}(Track is missing!){% endif %}</li>
         {% endfor %}
     </ol>
 {% endmacro %}
