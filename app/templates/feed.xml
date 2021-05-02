@@ -9,7 +9,14 @@
     </ul>
     <ol>
         {% for track in album.tracks %}
-            <li>{{ track.title_short }} ({{ track.duration_in_minutes }}) {% if not track.readable %}(Track is missing!){% endif %}</li>
+            {% set trackinfo = track.title_short + ' (' + track.duration_in_minutes + ')' %}
+            <li>
+                {% if track.readable %}
+                    {{ trackinfo }}
+                {% else %}
+                    <s>{{ trackinfo }}</s> (Track is missing!)
+                {% endif %}
+            </li>
         {% endfor %}
     </ol>
 {% endmacro %}
