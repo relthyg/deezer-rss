@@ -9,7 +9,6 @@ def get_artist(artist_id_or_name):
         artist = client.get_artist(int(artist_id_or_name))
     except:
         artist = client.search(artist_id_or_name, relation='artist')[0]
-    artist.albums = get_albums(artist)
     return artist
 
 
