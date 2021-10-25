@@ -2,6 +2,7 @@
 {% macro description(album) %}
     <p><a href="{{ album.cover_xl }}"><img src="{{ album.cover_medium }}" /></a></p>
     <ul>
+        <li>ID: {{ album.id }}</li>
         <li>Duration: {{ album.duration_in_minutes }}</li>
         <li>Record Type: {{ album.record_type }}</li>
     </ul>
