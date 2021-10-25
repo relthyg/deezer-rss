@@ -27,7 +27,6 @@ def get_albums(artist):
             album.duration += track.duration
         album.duration_in_minutes = get_duration_in_minutes(album.duration)
         album.pub_date = datetime.strptime(album.release_date, '%Y-%m-%d').strftime("%a, %d %b %Y %H:%M:%S +0100")
-        album.is_complete = str(is_complete(album))
     return albums
 
 
@@ -41,10 +40,3 @@ def get_tracks(album):
 def get_duration_in_minutes(duration_in_seconds):
     m, s = divmod(duration_in_seconds, 60)
     return str(m).zfill(2) + ':' + str(s).zfill(2)
-
-
-def is_complete(album):
-    for track in album.tracks:
-        if not track.readable:
-            return False
-    return True
