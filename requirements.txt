@@ -1,5 +1,5 @@
 deezer-python==2.2.1
-flask-caching==1.10.0
+flask-caching==2.0.2
 flask-headers==1.0
 pip-chill==1.0.1
 python-dotenv==0.15.0
