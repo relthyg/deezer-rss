@@ -1,7 +1,7 @@
 from flask import render_template, redirect, request, Response
 
 from app import app, cache
-from app.deezer_factory import get_artist
+from app.deezer_client_facade import get_artist
 
 
 @app.route('/<artist_id_or_name>')
