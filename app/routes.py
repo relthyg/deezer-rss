@@ -4,12 +4,10 @@ from app import app, cache
 from app.deezer_client_facade import get_artist
 
 
-@app.route('/<artist_id_or_name>')
+@app.route('/<artist_id>')
 @cache.cached()
-def index(artist_id_or_name):
-    artist = get_artist(artist_id_or_name)
-    if str(artist.id) != artist_id_or_name:
-        return redirect(f'/{artist.id}', 302)
+def index(artist_id):
+    artist = get_artist(artist_id)
     response = Response(render_template('feed.xml', artist=artist, request_url=request.base_url))
     response.headers['Content-Type'] = 'text/xml'
 

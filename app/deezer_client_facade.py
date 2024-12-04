@@ -3,12 +3,9 @@ from datetime import datetime
 import deezer, time
 
 
-def get_artist(artist_id_or_name):
+def get_artist(artist_id):
     client = deezer.Client()
-    try:
-        artist = client.get_artist(int(artist_id_or_name))
-    except:
-        artist = client.search(artist_id_or_name, relation='artist')[0]
+    artist = client.get_artist(int(artist_id))
     artist.albums = get_albums(artist)
     return artist
 
